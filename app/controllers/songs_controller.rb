@@ -1,8 +1,13 @@
 class SongsController < ApplicationController
+
+  # before_action :do_this_method, only: [:index, :new]
+
   def index
+    @songs = Song.all
   end
 
   def show
+    @song = Song.find(params[:id])
   end
 
   def new
@@ -47,4 +52,3 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title)
   end
 end
-
